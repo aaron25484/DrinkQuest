@@ -1,7 +1,11 @@
 import React from 'react';
-import Cocktail from '../interfaces/interfaces';
+import Cocktail from '../types/types';
 
-const ItemCard = ({ cocktail }) => {
+interface ItemCardProps {
+  cocktail: Cocktail;
+}
+
+const ItemCard: React.FC<ItemCardProps> = ({ cocktail }) => {
   return (
     <div className="item-card bg-white shadow-lg rounded-md p-6">
       <img
