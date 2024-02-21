@@ -1,30 +1,91 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# DrinkQuest - Your Cocktail searcher
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Made with **React, Typescript, Tailwind CSS, Jest** and deployed with **Netlify**
 
-## Expanding the ESLint configuration
+Due February 21 2024  
+Made by [Aaron de los Santos](https://github.com/aaron25484)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Table of Contents
 
-- Configure the top-level `parserOptions` property like this:
+- [DrinkQuest - Your Cocktail searcher](#DrinkQuest---Your-Cocktail-searcher)
+  - [About the Project](#about-the-project)
+  - [Visit the Page](#visit-the-page)
+  - [Installation and Setup](#installation-and-setup)
+  - [Running the Test Suite](#running-the-test-suite)
+  - [Tecnologies Used](#tecnologies-used)
+  - [Future Improvements](#future-improvements)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## About the Project
+
+The main objective of this project is to search for Cocktails by one of its ingredients and deliver six cocktails. The first choices available must be non-alcoholic and the suggested cocktails can't have more than six ingredients. The data comes from https://www.thecocktaildb.com/ API.
+
+## Visit the Page
+
+The page is deployed on Netlify. You can visit it on this URL:
+
+[DrinkQuest](https://drinkquest.netlify.app/)
+
+## Installation and Setup
+
+Clone the repository. You will need **[node](https://nodejs.org/es)** and **[pnpm](https://pnpm.io/)** installed globally on your machine.
+
+```
+https://github.com/aaron25484/DrinkQuest.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Go to the project folder:
+
+````
+cd DrinkQuest
+````
+
+Install dependencies via pnpm:
+ 
+
+``````
+pnpm install
+``````
+
+
+Start the development server:
+``````
+pnpm run dev
+``````
+
+
+Visit the app:
+
+[http://localhost:5173/](http://localhost:5173/)
+
+## Running the Test Suite
+
+Execute the following command to run the test suite:
+
+````
+pnpm test
+````
+The test suite will execute, and the results will be displayed in the terminal. You'll see information about which tests passed, failed, or encountered errors.
+
+Also, if you want to run a specific test file or focus on a particular test suite, you can use the following command:
+
+`````
+pnpm test <name-of-the-file>
+``````
+
+
+## Tecnologies Used
+
+- [React](https://es.react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Netlify](https://www.netlify.com/)
+- [Jest](https://jestjs.io/es-ES/)
+
+## Future Improvements
+
+I would like to expand the possibilities of the search engine by adding more fields of exploration for the user, such as searching by repository name or tech stack used. Also I would like to have a Favourites section so the users could save the ones that they like the most.
+Also, I would like to improve the style of the application and give it a modern touch.
+
+# Have fun with DrinkQuest!!!
