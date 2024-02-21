@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Searchbar from '../components/Searchbar'
 import ItemList from '../components/ItemList'
 import Footer from '../components/Footer'
-import { searchByIngredient } from '../api/searchByIngredient'
+import { searchByIngredient } from '../api/apiCalls'
 import Cocktail from '../types/types'
 
 const LandingPage: React.FC = () => {

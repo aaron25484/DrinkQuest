@@ -47,8 +47,6 @@ export const searchByIngredient = async (ingredient: string) => {
         ? nonAlcoholicCocktails.slice(0, 6)
         : nonAlcoholicCocktails.concat(alcoholicCocktails.slice(0, 6 - nonAlcoholicCocktails.length));
 
-        console.log(finalCocktails)
-
       return finalCocktails;
     }
 
