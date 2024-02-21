@@ -12,11 +12,8 @@ const LandingPage: React.FC = () => {
     try {
       const result = await searchByIngredient(ingredient)
       const extractedCocktails = result.map(response => response.data);
-
         setCocktails(extractedCocktails)
-        console.log(extractedCocktails)
     } catch (error) {  
-      console.log(error)
       console.error('Error searching:', (error as Error).message)
       setCocktails([])
     }
