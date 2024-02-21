@@ -8,7 +8,7 @@ interface ItemListProps {
 
 const ItemList: React.FC<ItemListProps> = ({ cocktails }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 mx-3">
+    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 mx-3 flex-grow">
       {cocktails.map((category, index) => (
         <div key={index}>
           {Array.isArray(category.drinks) && category.drinks.map(cocktail => (
@@ -16,7 +16,7 @@ const ItemList: React.FC<ItemListProps> = ({ cocktails }) => {
           ))}
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

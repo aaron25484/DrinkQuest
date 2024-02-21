@@ -1,9 +1,11 @@
-root {
+#root {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 body{
-
   background-color: hsla(344, 96%, 57%, 1);
   background-image:
     radial-gradient(at 0% 100%, hsla(54, 98%, 69%, 1) 0px, transparent 50%),
@@ -12,7 +14,6 @@ body{
     radial-gradient(at 100% 0%, hsla(300, 45%, 36%, 1) 0px, transparent 50%);
   background-attachment: fixed;
   margin: 0 auto;
-
 }
 
 item-card {
@@ -22,4 +23,8 @@ item-card {
 
 input {
   background: none;
+}
+
+p, li {
+  text-shadow: 3px 2px 5px rgba(0,0,0,0.6);
 }

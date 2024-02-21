@@ -7,15 +7,15 @@ interface ItemCardProps {
 
 const ItemCard: React.FC<ItemCardProps> = ({ cocktail }) => {
   return (
-    <div className="item-card bg-white font-oswald bg-opacity-10 shadow-lg rounded-2xl p-3 h-full">
+    <article className="item-card bg-white font-oswald bg-opacity-10 shadow-lg rounded-2xl p-3 h-full mt-2">
       <img
         src={cocktail.strDrinkThumb}
         alt={cocktail.strDrink}
         className="w-full object-fill mb-4 rounded-3xl shadow-2xl"
       />
-      <h3 className="text-xl text-center font-bold mb-2">{cocktail.strDrink}</h3>
+      <h3 className="text-xl text-center font-black mb-2">{cocktail.strDrink}</h3>
       <div className="text-container overflow-y-auto">
-        <p className="text-gray-600 mb-1">Ingredients:</p>
+        <p className=" text-gray-400 mb-1">Ingredients:</p>
         <ul className="list-none mb-3">
           {Object.keys(cocktail).map((key) => {
             if (key.startsWith('strIngredient') && cocktail[key as keyof Cocktail]) {
@@ -33,10 +33,10 @@ const ItemCard: React.FC<ItemCardProps> = ({ cocktail }) => {
             return null;
           })}
         </ul>
-        <p className="text-gray-600 mb-1">Instructions:</p>
-        <p className="text-gray-700 text-justify">{cocktail.strInstructions}</p>
+        <p className="text-gray-400 mb-1">Instructions:</p>
+        <p className="text-justify">{cocktail.strInstructions}</p>
       </div>
-    </div>
+    </article>
   );
 };
 
