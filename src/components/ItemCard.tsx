@@ -13,7 +13,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ cocktail }) => {
         alt={cocktail.strDrink}
         className="w-full object-fill mb-4 rounded-3xl shadow-2xl"
       />
-      <h3 className="text-xl text-center font-black mb-2">{cocktail.strDrink}</h3>
+      <h3 className="text-2xl text-center font-black mb-3">{cocktail.strDrink}</h3>
       <div className="text-container overflow-y-auto">
         <p className=" text-gray-400 mb-1">Ingredients:</p>
         <ul className="list-none mb-3">

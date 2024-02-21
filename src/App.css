@@ -23,8 +23,9 @@ item-card {
 
 input {
   background: none;
+  border-bottom: 1px solid #FFF;
 }
 
-p, li {
+p, li, h3 {
   text-shadow: 3px 2px 5px rgba(0,0,0,0.6);
 }
