@@ -1,7 +1,14 @@
 import axios, { AxiosResponse } from 'axios';
 
+// Retrieve API URL from environment variables
 const { VITE_API_URL } = import.meta.env;
 
+/**
+ * Retrieves details of a specific cocktail by its ID.
+ *
+ * @param {string} cocktailId - The ID of the cocktail to fetch details for.
+ * @returns {Promise<AxiosResponse | null>} - A Promise that resolves to the AxiosResponse or null if an error occurs.
+ */
 const getCocktailDetails = async (cocktailId: string): Promise<AxiosResponse | null> => {
   try {
     const response: AxiosResponse = await axios.get(`${VITE_API_URL}lookup.php?i=${cocktailId}`);
@@ -12,7 +19,14 @@ const getCocktailDetails = async (cocktailId: string): Promise<AxiosResponse | n
   }
 };
 
-export const searchByIngredient = async (ingredient: string) => {
+/**
+ * Searches for cocktails based on a specified ingredient.
+ *
+ * @param {string} ingredient - The ingredient to search for.
+ * @returns {Promise<AxiosResponse[]>} - A Promise that resolves to an array of AxiosResponse objects representing cocktails.
+ * @throws {Error} - Throws an error if there is an issue with the API request.
+ */
+export const searchByIngredient = async (ingredient: string): Promise<AxiosResponse[]> => {
   try {
     const response: AxiosResponse = await axios.get(`${VITE_API_URL}filter.php?i=${ingredient}`);
     
