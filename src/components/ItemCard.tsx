@@ -7,11 +7,11 @@ interface ItemCardProps {
 
 const ItemCard: React.FC<ItemCardProps> = ({ cocktail }) => {
   return (
-    <div className="item-card bg-white shadow-lg rounded-md p-6">
+    <div className="item-card bg-white bg-opacity-10 shadow-lg rounded-2xl p-3">
       <img
         src={cocktail.strDrinkThumb}
         alt={cocktail.strDrink}
-        className="w-full h-48 object-contain mb-4 rounded-md"
+        className="w-full h-48 object-contain mb-4 rounded-3xl"
       />
       <h3 className="text-2xl font-bold mb-2">{cocktail.strDrink}</h3>
       <p className="text-gray-600 mb-4">Ingredients:</p>
