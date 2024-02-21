@@ -1,4 +1,5 @@
 type Cocktail = {
+  drinks: object;
   idDrink: string;
   strDrink: string;
   strDrinkThumb: string;

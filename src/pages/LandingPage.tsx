@@ -1,27 +1,28 @@
 import React, { useState } from 'react'
-import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
 import ItemList from '../components/ItemList'
 import Footer from '../components/Footer'
 import { searchByIngredient } from '../api/searchByIngredient'
+import Cocktail from '../types/types'
 
 const LandingPage: React.FC = () => {
-  const [cocktails, setCocktails] = useState([]);
+  const [cocktails, setCocktails] = useState<Cocktail[]>([]);
 
   const handleSearch = async (ingredient: string) => {
     try {
       const result = await searchByIngredient(ingredient)
-        setCocktails(result)
-        console.log(result)
+      const extractedCocktails = result.map(response => response.data);
+
+        setCocktails(extractedCocktails)
+        console.log(extractedCocktails)
     } catch (error) {  
       console.log(error)
-      console.error('Error searching:', error.message)
+      console.error('Error searching:', (error as Error).message)
       setCocktails([])
     }
   }
   return (
     <>
-      <Navbar/>
       <Searchbar onSearch={handleSearch} />
       <ItemList cocktails={cocktails} />
       <Footer />

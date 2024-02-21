@@ -3,15 +3,17 @@ import ItemCard from './ItemCard';
 import Cocktail from '../types/types';
 
 interface ItemListProps {
-  cocktails: Array<{ data: { drinks: Array<Cocktail> } }>;
+  cocktails: Cocktail[];
 }
 
 const ItemList: React.FC<ItemListProps> = ({ cocktails }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6">
-      {cocktails.map(cocktailData => (
-        <div key={cocktailData.data.drinks[0].idDrink} className="mr-4">
-          <ItemCard cocktail={cocktailData.data.drinks[0]} />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3 mx-3">
+      {cocktails.map((category, index) => (
+        <div key={index}>
+          {Array.isArray(category.drinks) && category.drinks.map(cocktail => (
+            <ItemCard key={cocktail.idDrink} cocktail={cocktail} />
+          ))}
         </div>
       ))}
     </div>

@@ -7,7 +7,7 @@ const getCocktailDetails = async (cocktailId: string): Promise<AxiosResponse | n
     const response: AxiosResponse = await axios.get(`${VITE_API_URL}lookup.php?i=${cocktailId}`);
     return response.data.drinks ? response : null;
   } catch (error) {
-    console.error(`Error fetching cocktail details for ID ${cocktailId}: ${error.message}`);
+    console.error(`Error fetching cocktail details for ID ${cocktailId}: ${(error as Error).message}`);
     return null;
   }
 };
@@ -19,7 +19,8 @@ export const searchByIngredient = async (ingredient: string) => {
     if (response.data && response.data.drinks) {
       const allCocktailsWithIngredient = response.data.drinks;
 
-      const filteredCocktails: AxiosResponse[] = [];
+      const nonAlcoholicCocktails: AxiosResponse[] = [];
+      const alcoholicCocktails: AxiosResponse[] = [];
 
       for (const cocktail of allCocktailsWithIngredient) {
         const detailsResponse = await getCocktailDetails(cocktail.idDrink);
@@ -29,21 +30,32 @@ export const searchByIngredient = async (ingredient: string) => {
           );
 
           if (ingredients.length <= 6) {
-            filteredCocktails.push(detailsResponse);
-            if (filteredCocktails.length === 6) {
-              break;
+            if (detailsResponse.data.drinks[0].strAlcoholic === 'Alcoholic') {
+              alcoholicCocktails.push(detailsResponse);
+            } else {
+              nonAlcoholicCocktails.push(detailsResponse);
             }
+          }
+
+          if (nonAlcoholicCocktails.length + alcoholicCocktails.length === 6) {
+            break;
           }
         }
       }
 
-      return filteredCocktails;
+      const finalCocktails = nonAlcoholicCocktails.length >= 6
+        ? nonAlcoholicCocktails.slice(0, 6)
+        : nonAlcoholicCocktails.concat(alcoholicCocktails.slice(0, 6 - nonAlcoholicCocktails.length));
+
+        console.log(finalCocktails)
+
+      return finalCocktails;
     }
 
     console.error('Error: Invalid response format from the API');
     return [];
   } catch (error) {
-    console.error('Error fetching the request:', error.message);
+    console.error('Error fetching the request:', (error as Error).message);
     throw error;
   }
 };
