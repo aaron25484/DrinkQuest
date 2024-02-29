@@ -85,7 +85,7 @@ pnpm test <name-of-the-file>
 
 ## Future Improvements
 
-I would like to expand the possibilities of the search engine by adding more fields of exploration for the user, such as searching by repository name or tech stack used. Also I would like to have a Favourites section so the users could save the ones that they like the most.
+I would like to expand the possibilities of the search engine by adding more fields of exploration for the user. Also I would like to have a Favourites section so the users could save the ones that they like the most.
 Also, I would like to improve the style of the application and give it a modern touch.
 
 # Have fun with DrinkQuest!!!
